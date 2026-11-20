@@ -57,6 +57,12 @@ jobs:
           sleep 8
           xcrun simctl io "$SIM_UDID" screenshot screenshot-ios.png
 
+      - name: Upload Screenshot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ui-screenshot
+          path: screenshot-ios.png
+
       - name: Build Unsigned IPA (iOS Device)
         run: |
           xcodebuild \
@@ -77,9 +83,3 @@ jobs:
         with:
           name: SmileMultifab-ipa
           path: SmileMultifab-unsigned.ipa
-
-      - name: Upload Screenshot Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-ui-screenshot
-          path: screenshot-ios.png
