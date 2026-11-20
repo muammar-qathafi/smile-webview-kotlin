@@ -39,3 +39,37 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO \
             build
+            
+      - name: Build Simulator App
+        run: |
+          xcodebuild \
+            -project iosApp/SmileMultifab.xcodeproj \
+            -scheme SmileMultifab \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Launch App & Take Screenshot
+        run: |
+          # Nyalakan Simulator iPhone 15
+          xcrun simctl boot "iPhone 15" || true
+          sleep 10
+
+          # Instal & jalankan aplikasi (.app) ke dalam Simulator
+          APP_PATH=$(find build/Build/Products/Debug-iphonesimulator -name "*.app" | head -n 1)
+          xcrun simctl install booted "$APP_PATH"
+          
+          # Ganti com.bundle.id sesuai Bundle Identifier di iosApp/project.yml Anda
+          xcrun simctl launch booted $(defaults read "$APP_PATH/Info.plist" CFBundleIdentifier)
+          
+          # Tunggu 8 detik agar halaman WebView selesai loading, lalu ambil screenshot
+          sleep 8
+          xcrun simctl io booted screenshot screenshot-ios.png
+
+      - name: Upload Screenshot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ui-screenshot
+          path: screenshot-ios.png
