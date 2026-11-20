@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Smile: Generate iOS Xcode Project",
+      "type": "shell",
+      "command": "powershell -ExecutionPolicy Bypass -File \"${workspaceFolder}/scripts/generate-ios-xcode.ps1\"",
+      "windows": {
+        "command": "powershell -ExecutionPolicy Bypass -File \"${workspaceFolder}/scripts/generate-ios-xcode.ps1\""
+      },
+      "osx": {
+        "command": "bash \"${workspaceFolder}/scripts/generate-ios-xcode.sh\""
+      },
+      "linux": {
+        "command": "bash \"${workspaceFolder}/scripts/generate-ios-xcode.sh\""
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Smile: Validate iOS Sources",
+      "type": "shell",
+      "command": "powershell -ExecutionPolicy Bypass -File \"${workspaceFolder}/scripts/generate-ios-xcode.ps1\"",
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}

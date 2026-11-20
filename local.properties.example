@@ -1,0 +1,3 @@
+# Android SDK path — di-generate otomatis oleh scripts/setup-android-sdk.ps1
+# Atau set manual setelah install Android Studio:
+# sdk.dir=C\:\\Users\\YOUR_USER\\AppData\\Local\\Android\\Sdk

@@ -1,0 +1,96 @@
+{
+  "version": 4,
+  "locationNotification": {
+    "title": "Smile Multifab",
+    "readyText": "PT Multi Fabrindo Gemilang",
+    "incompleteText": "Persiapan Ruang Lingkup Kerja",
+    "shiftEndedText": "Terima kasih atas kinerja Anda hari ini."
+  },
+  "locationTracking": {
+    "intervalMs": 60000,
+    "minIntervalMs": 60000,
+    "queueFlushSize": 30,
+    "maxLocalQueue": 1000,
+    "flushMaxAgeMs": 600000,
+    "batchMaxPoints": 1000,
+    "uploadMode": "batch",
+    "workShift": {
+      "timeIn": "08:00",
+      "timeOut": "17:00",
+      "timezone": "Asia/Jakarta"
+    }
+  },
+  "diagnosis": {
+    "title": "Diagnosis Push Notification",
+    "subtitle": "Cek izin, jaringan, dan kesiapan push.",
+    "items": [
+      {
+        "id": "login",
+        "title": "Login",
+        "description": "Profil user di cache lokal setelah login — dipakai registrasi FCM dan cek native lain.",
+        "check": "LOGIN",
+        "action": "retry"
+      },
+      {
+        "id": "notification_permission",
+        "title": "Izin notifikasi",
+        "check": "POST_NOTIFICATIONS",
+        "action": "request_notification"
+      },
+      {
+        "id": "location_permission",
+        "title": "Izin lokasi",
+        "description": "Izinkan saat aplikasi digunakan. Titik disimpan lokal, lalu dikirim sesuai antrian native config.",
+        "check": "ACCESS_FINE_LOCATION",
+        "action": "request_location"
+      },
+      {
+        "id": "gps_enabled",
+        "title": "GPS aktif",
+        "check": "GPS_PROVIDER",
+        "action": "open_location_settings"
+      },
+      {
+        "id": "network",
+        "title": "Koneksi internet",
+        "check": "NETWORK",
+        "action": "retry"
+      },
+      {
+        "id": "fcm_token",
+        "title": "Token FCM",
+        "check": "FCM_TOKEN",
+        "action": "register_push"
+      },
+      {
+        "id": "fcm_backend",
+        "title": "Registrasi FCM ke server",
+        "description": "Menyimpan token FCM untuk badge dan perangkat yang sedang login agar push dari ERP sampai.",
+        "check": "FCM_BE_REGISTERED",
+        "action": "sync_fcm_to_backend"
+      }
+    ]
+  },
+  "fakeGps": {
+    "enabled": true,
+    "blockOnMock": true,
+    "blockOnJump": true,
+    "jumpThresholdMeters": 80,
+    "jumpWindowMs": 4000,
+    "blockOnAttendanceRoutes": false,
+    "title": "Fake GPS terdeteksi",
+    "subtitle": "Perangkat Anda tercatat untuk verifikasi.",
+    "body": "Matikan Fake GPS / Mock Location di perangkat, lalu tekan tombol di bawah untuk lanjut absensi.",
+    "warning": "Perangkat Anda telah dicatat oleh sistem dan akan dilanjutkan ke proses verifikasi oleh tim yang berwenang.",
+    "steps": [
+      "Nonaktifkan Fake GPS",
+      "Hapus / tutup aplikasi Fake GPS bila ada",
+      "Pastikan GPS / lokasi aktif"
+    ],
+    "retryLabel": "Periksa ulang",
+    "homeLabel": "Kembali ke beranda"
+  },
+  "tts": {
+    "voiceGender": "female"
+  }
+}

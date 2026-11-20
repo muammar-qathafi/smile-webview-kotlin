@@ -1,0 +1,32 @@
+# Build outputs
+build/
+.gradle/
+.kotlin/
+local.properties
+
+# Dev-only (icon experiments, video frame dumps)
+tools/video_frames/
+tools/**/*.jpg
+
+# Secrets
+keystore.properties
+*.jks
+*.keystore
+google-services.json
+firebase.android.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# iOS / Xcode (sumber Swift + project.yml di-commit; artefak lokal tidak)
+iosApp/*.xcodeproj/
+iosApp/*.xcworkspace/
+iosApp/Pods/
+iosApp/DerivedData/
+iosApp/**/xcuserdata/
+iosApp/**/*.xcuserstate
+*.ipa
+*.dSYM.zip
+*.dSYM

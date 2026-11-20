@@ -1,0 +1,19 @@
+{
+    "tdad.project.techStack": "typescript-node",
+    "tdad.project.techStackCustom": "",
+    "tdad.project.projectType": "web-app",
+    "tdad.project.projectTypeCustom": "",
+    "tdad.project.database": "postgresql",
+    "tdad.project.databaseCustom": "",
+    "tdad.project.sourceRoot": "composeApp/src/androidMain/kotlin/co/id/multifab/smile",
+    "tdad.project.docsRoot": "docs/",
+    "files.associations": {
+        "**/iosApp/**/*.swift": "swift",
+        "**/iosApp/project.yml": "yaml"
+    },
+    "sweetpad.xcode.buildServerAutoGenerate": true,
+    "[swift]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4
+    }
+}

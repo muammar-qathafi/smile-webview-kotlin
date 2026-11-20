@@ -1,0 +1,8 @@
+# Salin ke firebase.android.properties jika belum punya google-services.json.
+# Ambil android_app_id dari Firebase Console → smile-multifab-v2 → Android app co.id.multifab
+project_id=smile-multifab-v2
+project_number=941959028493
+storage_bucket=smile-multifab-v2.firebasestorage.app
+api_key=AIzaSyDmd1jschmpjxsn3Phpr3VubFdmgTSwYkg
+package_name=co.id.multifab
+android_app_id=

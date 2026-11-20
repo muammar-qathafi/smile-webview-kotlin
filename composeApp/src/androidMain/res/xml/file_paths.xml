@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="cache" path="." />
+    <cache-path name="reminders_cache" path="reminders/" />
+    <files-path name="reminders" path="reminders/" />
+</paths>

@@ -1,0 +1,67 @@
+# XcodeGen — generate .xcodeproj di Mac:
+#   brew install xcodegen
+#   cd iosApp && xcodegen generate
+# Di Windows: struktur sumber tetap bisa diedit; generate/build butuh Mac.
+name: SmileMultifab
+options:
+  bundleIdPrefix: co.id.multifab
+  deploymentTarget:
+    iOS: "15.0"
+  developmentLanguage: id
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  BASE_SDK: iphoneos
+  SWIFT_VERSION: "5.0"
+  TARGETED_DEVICE_FAMILY: "1,2"
+  IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+  MARKETING_VERSION: "2.6.13"
+  CURRENT_PROJECT_VERSION: "2051"
+  PRODUCT_BUNDLE_IDENTIFIER: co.id.multifab.smile
+  PRODUCT_NAME: Smile Multifab
+  INFOPLIST_FILE: SmileMultifab/Info.plist
+  GENERATE_INFOPLIST_FILE: false
+  CODE_SIGN_STYLE: Automatic
+  ENABLE_BITCODE: false
+targets:
+  SmileMultifab:
+    type: application
+    platform: iOS
+    sources:
+      - path: SmileMultifab
+        excludes:
+          - "**/*.md"
+      - path: SmileMultifab/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: co.id.multifab.smile
+      INFOPLIST_FILE: SmileMultifab/Info.plist
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      TARGETED_DEVICE_FAMILY: "1,2"
+      SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: false
+    info:
+      path: SmileMultifab/Info.plist
+      properties:
+        CFBundleDisplayName: Smile Multifab
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        UILaunchStoryboardName: LaunchScreen
+        UIRequiredDeviceCapabilities: [armv7]
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+schemes:
+  SmileMultifab:
+    build:
+      targets:
+        SmileMultifab: all
+    run:
+      config: Debug
+    archive:
+      config: Release
