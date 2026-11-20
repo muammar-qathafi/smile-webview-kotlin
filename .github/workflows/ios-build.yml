@@ -48,8 +48,8 @@ jobs:
           xcrun simctl bootstatus "$SIM_UDID" -b
 
           # 3. Instal dan buka aplikasi (.app)
-          APP_PATH=$(find build/Build/Products/Debug-iphonesimulator -name "*.app" | head -n 1)
-          BUNDLE_ID=$(defaults read "$APP_PATH/Info.plist" CFBundleIdentifier)
+          APP_PATH="$PWD/$(find build/Build/Products/Debug-iphonesimulator -name "*.app" | head -n 1)"
+          BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier" "$APP_PATH/Info.plist")
           xcrun simctl install "$SIM_UDID" "$APP_PATH"
           xcrun simctl launch "$SIM_UDID" "$BUNDLE_ID"
 
